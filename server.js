@@ -7,4 +7,12 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(8080);
+PORT = process.env.PORT || 8080;
+
+app.listen(PORT, function(err) { 
+    if(err) {
+        console.log("server error", err);
+        process.exit(1);
+    };
+    console.log("FUCK YEAH ... server is working on port " + PORT);
+});
